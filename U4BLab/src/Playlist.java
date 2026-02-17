@@ -4,8 +4,7 @@ public class Playlist {
     private ArrayList<Song> music = new ArrayList<Song>();
 
 
-    public Playlist(ArrayList<Song> music)
-    {
+    public Playlist(ArrayList<Song> music) {
         this.music = music;
     }
 
@@ -14,7 +13,8 @@ public class Playlist {
         String output = "";
         for(int i = 0; i < this.music.size(); i++)
         {
-            output += this.music.toString() + "\n";
+            System.out.println(this.music);
+            output += (this.music.toString() + "\n");
         }
 
         return output;
