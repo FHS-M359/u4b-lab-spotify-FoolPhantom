@@ -11,7 +11,6 @@ public class SpotifyTester {
 
          Scanner scan = new Scanner(System.in);
 
-         ArrayList <Song> testplaylist=  new ArrayList<Song>();
          ArrayList <Song> PartySong = new ArrayList<>();
 
          while(unique.hasNextLine())
@@ -30,13 +29,39 @@ public class SpotifyTester {
          }
 
          Playlist uniqueSpotify = new Playlist(PartySong);
-         Song testSong = new Song("Born this Way","Lady gaga","daddasdsa",423,2010,"Music");
 
-         System.out.println(uniqueSpotify.toString());
 
-         testplaylist.add(testSong);
-         Playlist test = new Playlist(testplaylist);
-         System.out.println(test.toString());
+
+
+         boolean isActive = true;
+         String options = "==== Spotify Menu ==== \n1- Sort by artist (A-Z) \n";
+         options += "2- Sort by artist (Z-A) \n3- Sort by year (Oldest - Newest) \n";
+         options += "4- Sort by year (Newest - Oldest) \n5- Search all by genre \n";
+         options += "6- Display all songs \n7- Quit \n";
+
+         while(isActive)
+         {
+             System.out.println(options);
+             int answer = scan.nextInt();
+
+             if(answer == 7)
+             {
+                 isActive = false;
+             }
+
+             if(answer == 6)
+             {
+                 System.out.println(String.format("%-30s %-30s %-30s %-5s %-30s", "Song Name", "Artist", "Album", "Year", "Genre"));
+                 System.out.println(uniqueSpotify.toString());
+             }
+
+
+
+
+         }
+
+
+
      }
 
 

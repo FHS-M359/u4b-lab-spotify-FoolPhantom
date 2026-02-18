@@ -13,12 +13,14 @@ public class Playlist {
         String output = "";
         for(int i = 0; i < this.music.size(); i++)
         {
-            System.out.println(this.music);
-            output += (this.music.toString() + "\n");
+            //System.out.println(i +"+" +this.music);
+            output += (this.music.get(i).toString() + "\n");
         }
 
         return output;
     }
+
+
 
 
 }

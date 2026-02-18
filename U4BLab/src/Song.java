@@ -19,12 +19,7 @@ public class Song {
     public String toString()
     {
         String output = "";
-        output += this.songName + " ";
-        output += this.artistName+ " ";
-        output += this.album+ " ";
-        output += this.year+ " ";
-        output += this.genre+ " ";
-        output = String.format(output,"%-20s %10s %20s %6d %8s");
+        output = String.format("%-30s %-30s %-30s %-5d %-30s", this.songName, this.artistName, this.album,this.year,this.genre);
 
         return output;
     }
