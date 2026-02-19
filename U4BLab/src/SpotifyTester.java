@@ -30,9 +30,6 @@ public class SpotifyTester {
 
          Playlist uniqueSpotify = new Playlist(PartySong);
 
-
-
-
          boolean isActive = true;
          String options = "==== Spotify Menu ==== \n1- Sort by artist (A-Z) \n";
          options += "2- Sort by artist (Z-A) \n3- Sort by year (Oldest - Newest) \n";
@@ -55,7 +52,43 @@ public class SpotifyTester {
                  System.out.println(uniqueSpotify.toString());
              }
 
+             if(answer == 5)
+             {
+                 System.out.println("Please enter genre desired");
+                 scan.nextLine();
+                 String genre = scan.next();
 
+             }
+
+
+
+             if(answer == 4)
+             {
+                 System.out.println(String.format("%-30s %-30s %-30s %-5s %-30s", "Song Name", "Artist", "Album", "Year", "Genre"));
+                 uniqueSpotify.newest();
+                 System.out.println(uniqueSpotify.toString());
+             }
+
+             if(answer == 3)
+             {
+                 System.out.println(String.format("%-30s %-30s %-30s %-5s %-30s", "Song Name", "Artist", "Album", "Year", "Genre"));
+                 uniqueSpotify.oldest();
+                 System.out.println(uniqueSpotify.toString());
+             }
+
+             if(answer == 2)
+             {
+                 System.out.println(String.format("%-30s %-30s %-30s %-5s %-30s", "Song Name", "Artist", "Album", "Year", "Genre"));
+                 uniqueSpotify.sortArtistNameZA();
+                 System.out.println(uniqueSpotify.toString());
+             }
+
+             if(answer == 1)
+             {
+                 System.out.println(String.format("%-30s %-30s %-30s %-5s %-30s", "Song Name", "Artist", "Album", "Year", "Genre"));
+                 uniqueSpotify.sortArtistNameAZ();
+                 System.out.println(uniqueSpotify.toString());
+             }
 
 
          }
