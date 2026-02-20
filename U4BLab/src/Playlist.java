@@ -116,11 +116,19 @@ public class Playlist {
         {
             if(this.music.get(i).getGenre().equalsIgnoreCase(goal))
             {
+                //System.out.println(this.music.get(i).toString());
                 output.add(this.music.get(i));
             }
         }
 
-        System.out.println(output.toString());
+
+        for (Song song : output) {
+            System.out.println(song.toString());
+        }
+        if(output.isEmpty())
+        {
+            System.out.println("There is no genre called " + goal);
+        }
 
     }
 

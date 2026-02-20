@@ -12,7 +12,13 @@ public class SpotifyTester {
          Scanner scan = new Scanner(System.in);
 
          ArrayList <Song> PartySong = new ArrayList<>();
-
+         int sortAZ = 1;
+         int sortZa = 2;
+         int sortOldNew = 3;
+         int sortNewOld=4;
+         int searchGenre = 5;
+         int showAll = 6;
+         int exit = 7;
          while(unique.hasNextLine())
          {
              String[] fullSong = unique.nextLine().split(",");
@@ -39,57 +45,63 @@ public class SpotifyTester {
          while(isActive)
          {
              System.out.println(options);
-             int answer = scan.nextInt();
+             try {
+                 int answer = scan.nextInt();
 
-             if(answer == 7)
+
+             if(answer == exit)
              {
                  isActive = false;
              }
 
-             if(answer == 6)
+             if(answer == showAll)
              {
                  System.out.println(String.format("%-30s %-30s %-30s %-5s %-30s", "Song Name", "Artist", "Album", "Year", "Genre"));
                  System.out.println(uniqueSpotify.toString());
              }
 
-             if(answer == 5)
+             if(answer == searchGenre)
              {
                  System.out.println("Please enter genre desired");
                  scan.nextLine();
                  String genre = scan.next();
-
+                 uniqueSpotify.Search(genre);
              }
 
-
-
-             if(answer == 4)
+             if(answer == sortNewOld)
              {
                  System.out.println(String.format("%-30s %-30s %-30s %-5s %-30s", "Song Name", "Artist", "Album", "Year", "Genre"));
                  uniqueSpotify.newest();
                  System.out.println(uniqueSpotify.toString());
              }
 
-             if(answer == 3)
+             if(answer == sortOldNew)
              {
                  System.out.println(String.format("%-30s %-30s %-30s %-5s %-30s", "Song Name", "Artist", "Album", "Year", "Genre"));
                  uniqueSpotify.oldest();
                  System.out.println(uniqueSpotify.toString());
              }
 
-             if(answer == 2)
+             if(answer == sortZa)
              {
                  System.out.println(String.format("%-30s %-30s %-30s %-5s %-30s", "Song Name", "Artist", "Album", "Year", "Genre"));
                  uniqueSpotify.sortArtistNameZA();
                  System.out.println(uniqueSpotify.toString());
              }
 
-             if(answer == 1)
+             if(answer == sortAZ)
              {
                  System.out.println(String.format("%-30s %-30s %-30s %-5s %-30s", "Song Name", "Artist", "Album", "Year", "Genre"));
                  uniqueSpotify.sortArtistNameAZ();
                  System.out.println(uniqueSpotify.toString());
              }
 
+             }
+             catch (Exception e)
+             {
+                 System.out.println("Please enter a number");
+                 scan.nextLine();
+             }
 
          }
 
