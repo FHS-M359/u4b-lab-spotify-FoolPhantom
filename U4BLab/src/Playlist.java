@@ -67,43 +67,43 @@ public class Playlist {
 
     public void oldest()
     {
-        for(int i = 0; i < this.music.size();i++)
+        for(int i = 1; i < this.music.size();i++)
         {
-            int mindex = i;
+            int tempYear = this.music.get(i).getYear();
+            Song tempValue = this.music.get(i);
 
-            for(int j = i +1; j < this.music.size(); j ++)
+            int position = i;
+
+            while(position > 0 && this.music.get(position -1).getYear() > tempYear)
             {
-
-                if(this.music.get(mindex).getYear() > this.music.get(j).getYear())
-                {
-                    mindex = j;
-                }
+                this.music.set(position,this.music.get(position -1));
+                position --;
             }
+            //Insert value in the sorrted location
+            this.music.set(position,tempValue);
 
-            Song temp = this.music.get(i);
-            this.music.set(i,this.music.get(mindex));
-            this.music.set(mindex,temp);
+
         }
+
     }
 
     public void newest()
     {
-        for(int i = 0; i < this.music.size();i++)
+        for(int i = 1; i < this.music.size();i++)
         {
-            int maxdex = i;
+            int tempYear = this.music.get(i).getYear();
+            Song tempValue = this.music.get(i);
 
-            for(int j = i +1; j < this.music.size(); j ++)
+            int position = i;
+
+            while(position > 0 && this.music.get(position -1).getYear() < tempYear)
             {
-
-                if(this.music.get(maxdex).getYear() < this.music.get(j).getYear())
-                {
-                    maxdex = j;
-                }
+                this.music.set(position,this.music.get(position -1));
+                position --;
             }
+            //Insert value in the sorrted location
+            this.music.set(position,tempValue);
 
-            Song temp = this.music.get(i);
-            this.music.set(i,this.music.get(maxdex));
-            this.music.set(maxdex,temp);
         }
 
     }
