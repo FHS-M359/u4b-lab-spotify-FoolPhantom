@@ -99,7 +99,7 @@ public class SpotifyTester {
              }
              catch (Exception e)
              {
-                 System.out.println("Please enter a number");
+                 System.out.println("Please enter a number 1-7");
                  scan.nextLine();
              }
 

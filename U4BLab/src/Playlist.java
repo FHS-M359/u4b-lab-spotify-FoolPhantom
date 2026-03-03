@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Playlist {
     private ArrayList<Song> music = new ArrayList<Song>();
@@ -129,6 +130,29 @@ public class Playlist {
         {
             System.out.println("There is no genre called " + goal);
         }
+
+    }
+
+
+    public void readIn(Scanner scan)
+    {
+        ArrayList <Song> PartySong = new ArrayList<>();
+        while(scan.hasNextLine())
+        {
+            String[] fullSong = scan.nextLine().split(",");
+            String songName = fullSong[0];
+            String artistName = fullSong[1];
+            String album = fullSong[2];
+            int time = Integer.parseInt(fullSong[3]);
+            int year = Integer.parseInt(fullSong[4]);
+            String genre = fullSong[5];
+
+
+            Song temp = new Song(songName,artistName,album,time,year,genre);
+            PartySong.add(temp);
+        }
+
+        Playlist uniqueSpotify = new Playlist(PartySong);
 
     }
 
